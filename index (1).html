@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ravi Navadeep | Frontend Developer</title>
+<style>
+:root{--bg:#f2f5ff;--text:#121a3a;--muted:#55608a;--card:rgba(255,255,255,.72);--bd:rgba(20,30,80,.12);--a1:#0096d6;--a2:#6a11cb;--a3:#e0007a;--dot:20,30,90;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070b1f;--text:#eaf0ff;--muted:#9aa8d0;--card:rgba(255,255,255,.06);--bd:rgba(255,255,255,.14);--a1:#00c6ff;--a2:#7b2ff7;--a3:#ff0080;--dot:255,255,255}}
+:root[data-theme="dark"]{--bg:#070b1f;--text:#eaf0ff;--muted:#9aa8d0;--card:rgba(255,255,255,.06);--bd:rgba(255,255,255,.14);--a1:#00c6ff;--a2:#7b2ff7;--a3:#ff0080;--dot:255,255,255}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,Arial,sans-serif;line-height:1.6;overflow-x:hidden}
+#fx{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.45;z-index:0;pointer-events:none;animation:float 18s ease-in-out infinite}
+.o1{width:460px;height:460px;background:var(--a2);top:-120px;left:-100px}
+.o2{width:420px;height:420px;background:var(--a1);bottom:-100px;right:-80px;animation-delay:-6s}
+.o3{width:340px;height:340px;background:var(--a3);top:40%;left:55%;animation-delay:-12s;opacity:.3}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(60px,40px) scale(1.15)}66%{transform:translate(-40px,70px) scale(.9)}}
+#glow{position:fixed;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(circle,rgba(0,198,255,.16),transparent 65%);z-index:0;pointer-events:none;left:50%;top:30%}
+main,nav,footer{position:relative;z-index:1}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;margin:14px auto 0;width:max-content;max-width:94%;padding:8px 12px;border-radius:99px;background:var(--card);border:1px solid var(--bd);backdrop-filter:blur(14px)}
+nav a{color:var(--muted);text-decoration:none;padding:6px 14px;border-radius:99px;font-size:14px;transition:.25s}
+nav a:hover{color:#fff;background:linear-gradient(90deg,var(--a2),var(--a1))}
+nav button{background:none;border:0;cursor:pointer;font-size:16px;padding:4px 8px}
+section{max-width:1050px;margin:0 auto;padding:80px 22px 20px}
+.hero{min-height:88vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:50px}
+.hi{padding:6px 16px;border:1px solid var(--bd);border-radius:99px;background:var(--card);font-size:14px;color:var(--muted);animation:up .8s both}
+h1{font-size:clamp(44px,9vw,92px);font-weight:800;line-height:1.05;margin:18px 0 10px;background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3),var(--a1));background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:up .9s .15s both,shine 6s linear infinite}
+@keyframes shine{to{background-position:300% 0}}
+@keyframes up{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+.type{font-size:clamp(18px,3vw,26px);min-height:1.6em;color:var(--muted);animation:up .9s .3s both}
+.type b{color:var(--a1);font-weight:600}
+.cur{display:inline-block;width:2px;height:1em;background:var(--a1);margin-left:3px;vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px;animation:up .9s .45s both}
+.btn{padding:12px 26px;border-radius:99px;text-decoration:none;font-weight:600;font-size:15px;transition:.3s;border:1px solid var(--bd);color:var(--text);background:var(--card)}
+.btn.p{background:linear-gradient(90deg,var(--a2),var(--a1));color:#fff;border:0;box-shadow:0 8px 30px rgba(123,47,247,.4)}
+.btn:hover{transform:translateY(-4px) scale(1.03)}
+.loc{margin-top:22px;color:var(--muted);font-size:14px;animation:up .9s .6s both}
+h2{font-size:clamp(28px,5vw,40px);margin-bottom:26px;display:flex;align-items:center;gap:14px}
+h2::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,var(--a1),transparent);border-radius:2px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:20px;padding:24px;backdrop-filter:blur(14px);transition:.35s}
+.card:hover{transform:translateY(-8px);border-color:var(--a1);box-shadow:0 20px 50px rgba(0,150,255,.18)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.card h3{margin-bottom:8px;font-size:19px}
+.card p{color:var(--muted);font-size:15px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.tag{font-size:12px;padding:4px 12px;border-radius:99px;background:linear-gradient(90deg,rgba(123,47,247,.25),rgba(0,198,255,.25));border:1px solid var(--bd)}
+.card a{color:var(--a1);text-decoration:none;font-size:14px;font-weight:600;margin-right:12px}
+.mq{overflow:hidden;border-radius:16px;border:1px solid var(--bd);background:var(--card);padding:16px 0;margin-bottom:18px}
+.mq div{display:flex;gap:12px;width:max-content;animation:scroll 28s linear infinite}
+.mq:hover div{animation-play-state:paused}
+.mq span{padding:8px 20px;border-radius:99px;border:1px solid var(--bd);font-weight:600;font-size:14px;white-space:nowrap}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.bar{margin:14px 0}
+.bar i{display:block;height:8px;border-radius:8px;background:var(--bd);overflow:hidden;margin-top:6px}
+.bar i::after{content:"";display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,var(--a2),var(--a1));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.show .bar i::after{width:var(--w)}
+.bar div{display:flex;justify-content:space-between;font-size:14px}
+ul.l{list-style:none;padding:0}
+ul.l li{padding:10px 0;border-bottom:1px dashed var(--bd);color:var(--muted)}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s,transform .9s}
+.rv.show{opacity:1;transform:none}
+footer{text-align:center;padding:60px 20px 40px;color:var(--muted);font-size:14px}
+.av{position:relative;width:136px;height:136px;margin-bottom:20px;cursor:pointer;animation:up .8s both}
+.av::before{content:"";position:absolute;inset:-5px;border-radius:50%;background:conic-gradient(var(--a1),var(--a2),var(--a3),var(--a1));animation:rot 5s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.av span,.av img{position:absolute;inset:0;width:100%;height:100%;border-radius:50%;object-fit:cover}
+.av span{display:flex;align-items:center;justify-content:center;background:var(--bg);font-size:44px;font-weight:800;color:var(--a1);z-index:1}
+.av img{z-index:2}
+.mock{border-radius:14px;border:1px solid var(--bd);overflow:hidden;background:linear-gradient(135deg,rgba(123,47,247,.3),rgba(0,198,255,.25))}
+.mock .tb{display:flex;gap:6px;padding:10px 12px;background:var(--card)}
+.mock .tb i{width:10px;height:10px;border-radius:50%;background:var(--a3);opacity:.8}
+.mock .bd{padding:22px;display:grid;gap:10px}
+.mock .bd b{display:block;height:12px;border-radius:6px;background:var(--bd);animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.4}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas>
+<div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div id="glow"></div>
+
+<nav>
+  <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#goals">Goals</a><a href="#contact">Contact</a>
+  <button id="th" aria-label="Toggle theme">🌓</button>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="av up" title="Click to add your photo"><span>RN</span><img src="profile.jpg" alt="Ravi Navadeep" onerror="this.remove()"></div>
+  <span class="hi">👋 Hello, I'm</span>
+  <h1>Ravi Navadeep</h1>
+  <div class="type">I'm a <b id="role"></b><span class="cur"></span></div>
+  <div class="btns">
+    <a class="btn p" href="#projects">View Projects</a>
+    <a class="btn" href="#contact">Contact Me</a>
+  </div>
+  <div class="loc">📍 Tanuku, India &nbsp;•&nbsp; Computer Science Student</div>
+</section>
+
+<section id="about" class="rv">
+  <h2>👨‍💻 About Me</h2>
+  <div class="grid">
+    <div class="card"><h3>🎯 Career goal</h3><p>Land a frontend or AI development internship and grow into a full-time developer role.</p></div>
+    <div class="card"><h3>💡 Interests</h3><p>Web Development, Artificial Intelligence and Open Source.</p></div>
+    <div class="card"><h3>🌱 Focus</h3><p>Building real-world projects and strengthening my problem-solving skills.</p></div>
+    <div class="card"><h3>⚡ Fun fact</h3><p>I turn ideas into working projects one commit at a time.</p></div>
+  </div>
+</section>
+
+<section id="skills" class="rv">
+  <h2>🛠️ Tech Stack</h2>
+  <div class="mq"><div>
+    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Tailwind CSS</span><span>Bootstrap</span><span>Python</span><span>Git</span><span>GitHub</span><span>Figma</span><span>Vercel</span><span>VS Code</span>
+    <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React</span><span>Tailwind CSS</span><span>Bootstrap</span><span>Python</span><span>Git</span><span>GitHub</span><span>Figma</span><span>Vercel</span><span>VS Code</span>
+  </div></div>
+  <div class="card">
+    <div class="bar"><div><span>HTML &amp; CSS</span><span>85%</span></div><i style="--w:85%"></i></div>
+    <div class="bar"><div><span>JavaScript</span><span>75%</span></div><i style="--w:75%"></i></div>
+    <div class="bar"><div><span>React &amp; Tailwind</span><span>70%</span></div><i style="--w:70%"></i></div>
+    <div class="bar"><div><span>Python &amp; AI basics</span><span>60%</span></div><i style="--w:60%"></i></div>
+  </div>
+</section>
+
+<section id="projects" class="rv">
+  <h2>🚀 Projects</h2>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
+    <div class="card">
+      <div class="mock" style="margin-bottom:16px"><div class="tb"><i></i><i></i><i></i></div><div class="bd"><b style="width:35%"></b><b style="width:85%"></b><b style="width:70%"></b><b style="width:55%"></b></div></div>
+      <h3>✅ To-Do List App</h3>
+      <p>A simple task manager where you can add, complete and delete tasks. Tasks stay saved in the browser.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div>
+      <a href="https://github.com/YOUR-USERNAME/todo-app">💻 Code</a><a href="#">🔗 Live</a>
+    </div>
+    <div class="card">
+      <div class="mock" style="margin-bottom:16px"><div class="tb"><i></i><i></i><i></i></div><div class="bd"><b style="width:50%"></b><b style="width:90%"></b><b style="width:65%"></b><b style="width:80%"></b></div></div>
+      <h3>🌤️ Weather App</h3>
+      <p>Search any city and see its live temperature, humidity and weather condition using a free weather API.</p>
+      <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">API</span></div>
+      <a href="https://github.com/YOUR-USERNAME/weather-app">💻 Code</a><a href="#">🔗 Live</a>
+    </div>
+  </div>
+</section>
+
+<section id="goals" class="rv">
+  <h2>🏆 Milestones &amp; Learning</h2>
+  <div class="grid">
+    <div class="card"><h3>🏆 Achievements</h3><ul class="l"><li>🎓 Pursuing a degree in Computer Science</li><li>💻 Building hands-on React projects</li><li>🤖 Exploring AI &amp; ML fundamentals</li><li>🌱 Growing my open-source journey</li></ul></div>
+    <div class="card"><h3>📚 Currently Learning</h3><div class="tags"><span class="tag">React</span><span class="tag">Machine Learning</span><span class="tag">DSA</span></div>
+      <h3 style="margin-top:18px">🤝 Open to collaborate</h3><p>Open-source • Startup ideas • Research • Internships</p></div>
+  </div>
+</section>
+
+<section id="contact" class="rv">
+  <h2>📫 Connect With Me</h2>
+  <div class="card" style="text-align:center">
+    <p style="font-size:17px;margin-bottom:18px">Have an idea or an opportunity? Let's build something great together.</p>
+    <div class="btns" style="animation:none;margin:0">
+      <a class="btn p" href="mailto:ravinavadeep1@gmail.com">✉️ Email</a>
+      <a class="btn" href="https://www.linkedin.com/in/ravinavadeep/">💼 LinkedIn</a>
+      <a class="btn" href="https://github.com/YOUR-USERNAME">🐙 GitHub</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer>Made with ❤️ by Ravi Navadeep ✨</footer>
+
+<script>
+// Typing roles
+var roles=["Frontend Developer","React & Tailwind Enthusiast","AI Explorer","Open Source Learner"],ri=0,ci=0,del=false,el=document.getElementById("role");
+(function t(){var w=roles[ri];ci+=del?-1:1;el.textContent=w.slice(0,ci);var s=del?40:90;
+if(!del&&ci===w.length){del=true;s=1400}else if(del&&ci===0){del=false;ri=(ri+1)%roles.length;s=300}setTimeout(t,s)})();
+
+// Scroll reveal
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll(".rv").forEach(function(n){io.observe(n)});
+
+// Theme toggle
+var root=document.documentElement;
+document.getElementById("th").onclick=function(){
+  var dark=getComputedStyle(root).getPropertyValue("--dot").indexOf("255")>-1;
+  root.setAttribute("data-theme",dark?"light":"dark")};
+
+// Mouse glow
+var g=document.getElementById("glow");
+window.addEventListener("pointermove",function(e){g.style.left=e.clientX+"px";g.style.top=e.clientY+"px"});
+
+// Click the profile circle to preview a photo from your device
+document.querySelectorAll(".up").forEach(function(el){
+  var inp=document.createElement("input");inp.type="file";inp.accept="image/*";inp.hidden=true;el.appendChild(inp);
+  el.addEventListener("click",function(e){if(e.target!==inp)inp.click()});
+  inp.addEventListener("change",function(){var f=inp.files[0];if(!f)return;
+    var im=el.querySelector("img");if(!im){im=document.createElement("img");im.alt="Photo";el.appendChild(im)}
+    im.src=URL.createObjectURL(f)})});
+
+// Particle network
+var c=document.getElementById("fx"),x=c.getContext("2d"),P=[],m={x:-999,y:-999},W,H;
+function rs(){W=c.width=innerWidth;H=c.height=innerHeight;P=[];var n=Math.min(90,Math.floor(W*H/16000));
+for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.5,vy:(Math.random()-.5)*.5})}
+rs();addEventListener("resize",rs);
+addEventListener("pointermove",function(e){m.x=e.clientX;m.y=e.clientY});
+(function d(){x.clearRect(0,0,W,H);var rgb=getComputedStyle(root).getPropertyValue("--dot").trim()||"255,255,255";
+for(var i=0;i<P.length;i++){var p=P[i];p.x+=p.vx;p.y+=p.vy;
+if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+var dx=p.x-m.x,dy=p.y-m.y,ds=Math.sqrt(dx*dx+dy*dy);if(ds<120){p.x+=dx/ds*1.5;p.y+=dy/ds*1.5}
+x.beginPath();x.arc(p.x,p.y,1.8,0,6.283);x.fillStyle="rgba("+rgb+",.7)";x.fill();
+for(var j=i+1;j<P.length;j++){var q=P[j],a=p.x-q.x,b=p.y-q.y,k=Math.sqrt(a*a+b*b);
+if(k<130){x.strokeStyle="rgba("+rgb+","+(.22*(1-k/130))+")";x.lineWidth=1;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}}
+requestAnimationFrame(d)})();
+</script>
+</body>
+</html>
